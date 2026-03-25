@@ -4,4 +4,4 @@ resources:
 
 images:
   - name: demo-app
-    newTag: "34"
+    newTag: "35"

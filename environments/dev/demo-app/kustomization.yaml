@@ -4,4 +4,4 @@ resources:
 
 images:
   - name: demo-app
-    newTag: "1.0"
+    newTag: "image_tag = test-123"

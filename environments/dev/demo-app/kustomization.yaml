@@ -1,3 +1,7 @@
 resources:
   - deployment.yaml
   - service.yaml
+
+images:
+  - name: demo-app
+    newTag: "1.0"

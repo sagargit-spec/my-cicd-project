@@ -4,8 +4,11 @@ on:
   workflow_dispatch:
     inputs:
       image_tag:
-        description: "Docker image tag"
         required: true
+        description: Docker image tag
+
+permissions:
+  contents: write
 
 jobs:
   update-gitops:
@@ -14,15 +17,11 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Update image tag
         run: |
-          TAG="${{ inputs.image_tag }}"
-          FILE="environments/dev/demo-app/kustomization.yaml"
-
-          sed -i "s/newTag:.*/newTag: \"${TAG}\"/" "$FILE"
+          sed -i 's/newTag:.*/newTag: "${{ inputs.image_tag }}"/' \
+            environments/dev/demo-app/kustomization.yaml
 
       - name: Commit and push
         run: |

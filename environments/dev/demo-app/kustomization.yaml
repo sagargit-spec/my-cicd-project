@@ -3,5 +3,5 @@ resources:
   - service.yaml
 
 images:
-  - name: demo-app
+  - name: sagar02020303/demo-app
     newTag: "55"

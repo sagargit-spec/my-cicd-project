@@ -15,5 +15,5 @@ spec:
     spec:
       containers:
       - name: demo-app
-        image: demo-app
+        image: sagar02020303/demo-app
         imagePullPolicy: IfNotPresent

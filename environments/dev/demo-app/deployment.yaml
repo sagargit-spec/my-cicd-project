@@ -15,5 +15,5 @@ spec:
     spec:
       containers:
       - name: demo-app
-        image: demo-app:latest
+        image: demo-app:1.0
         imagePullPolicy: IfNotPresent

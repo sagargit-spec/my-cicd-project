@@ -4,4 +4,4 @@ resources:
 
 images:
   - name: sagar02020303/demo-app
-    newTag: "65"
+    newTag: "66"

@@ -1,2 +1,2 @@
-# my-cicd-project hello
+# my-cicd-project
 

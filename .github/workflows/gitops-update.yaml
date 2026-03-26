@@ -15,18 +15,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repo
+      - name: Checkout GitOps branch
         uses: actions/checkout@v4
+        with:
+          ref: gitops
 
       - name: Update image tag
         run: |
           sed -i 's/newTag:.*/newTag: "${{ inputs.image_tag }}"/' \
             environments/dev/demo-app/kustomization.yaml
 
-      - name: Commit and push
+      - name: Commit and push to GitOps branch
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
+
           git add environments/dev/demo-app/kustomization.yaml
-          git commit -m "dev: update image tag to ${{ inputs.image_tag }}"
-          git push origin gitops
+          git commit -m "gitops: update image tag to ${{ inputs.image_tag }}"
+          git push origin gitops 
